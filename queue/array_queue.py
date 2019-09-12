@@ -1,4 +1,4 @@
-from ..exception import Empty
+from ..decorator import is_empty
 
 class ArrayQueue:
     '''FIFO queue implementation using a python list as storage'''
@@ -14,31 +14,26 @@ class ArrayQueue:
         '''Return number of elements in queue.'''
         return self._size
 
-    def is_empty(self):
-        '''Return True if queue is empty'''
-        return self._size == 0
-
+    @is_empty
     def first(self):
         '''Return but not remove element at front of queue
 
         Raise Empty if queue is empty.
         '''
-        if self.is_empty():
-            raise Empty('Queue is empty.')
         return self._data[self._front]
 
+    @is_empty
     def dequeue(self):
         '''Remove and return first element of queue (FIFO)
 
         Raise Empty if queue is empty.
         '''
-        if self.is_empty():
-            raise Empty('Queue is empty.')
         answer = self._data[self._front]
         self._data[self._front] = None # This is how we 'pop' from the queue
         self._front = (self._front + 1) % len(self._data) # set index to next val
         self._size -= 1
         return answer
+
 
     def enqueue(self, e):
         '''Add element to back of queue'''
@@ -64,4 +59,3 @@ class ArrayQueue:
             self._data[k] = old[walk] # shift indeces back to 0
             walk = (1 + walk) % len(old)
         self._front = 0 # reset front since we shifted indeces to 0
-        
