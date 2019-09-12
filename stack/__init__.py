@@ -1,2 +1,2 @@
-from .array_based import ArrayStack
-from .linked_list_based import LinkedStack
+from .array_stack import ArrayStack
+from .linked_stack import LinkedStack
