@@ -1,6 +1,6 @@
 from functools import wraps
 
-from ..exception import Empty
+from ..exceptions import Empty
 
 def is_empty(func):
     @wraps(func)

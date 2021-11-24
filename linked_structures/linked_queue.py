@@ -1,5 +1,5 @@
-from ..node import _Node
-from ..decorator import is_empty
+from ..nodes import _Node
+from ..decorators import is_empty
 
 class LinkedQueue:
     '''FIFO queue implementation using linked list'''

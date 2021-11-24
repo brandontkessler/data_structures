@@ -1,4 +1,4 @@
-from ..decorator import is_empty
+from ..decorators import is_empty
 from .doubly_linked_base import _DoublyLinkedBase
 from ..position.position import Position
 

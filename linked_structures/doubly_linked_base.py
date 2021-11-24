@@ -1,5 +1,5 @@
-from ..node import _NodeDoublyLinked
-from ..decorator import is_empty
+from ..nodes import _NodeDoublyLinked
+from ..decorators import is_empty
 
 class _DoublyLinkedBase:
     def __init__(self):

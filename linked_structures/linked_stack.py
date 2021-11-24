@@ -1,5 +1,5 @@
-from ..decorator import is_empty
-from ..node import _Node
+from ..decorators import is_empty
+from ..nodes import _Node
 
 class LinkedStack:
     '''LIFO Stack implementation using singly linked list for storage'''

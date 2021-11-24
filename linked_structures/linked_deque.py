@@ -1,5 +1,5 @@
-from ..linked_other.doubly_linked_base import _DoublyLinkedBase
-from ..decorator import is_empty
+from .doubly_linked_base import _DoublyLinkedBase
+from ..decorators import is_empty
 
 class LinkedDeque(_DoublyLinkedBase):
     '''Double-ended queue implementation based on a doubly linked list'''

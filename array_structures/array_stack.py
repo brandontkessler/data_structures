@@ -1,4 +1,4 @@
-from ..decorator import is_empty
+from ..decorators import is_empty
 
 class ArrayStack:
     '''LIFO stack implementation using a python list as storage'''
