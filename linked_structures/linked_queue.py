@@ -1,8 +1,15 @@
-from ..nodes import _Node
 from ..decorators import is_empty
 
 class LinkedQueue:
     '''FIFO queue implementation using linked list'''
+
+    class _Node:
+        '''lightweight, nonpublic class for storing a singly linked node.'''
+        __slots__ = '_element', '_next' # Prevent dynamic attribute creation (memory efficiency)
+
+        def __init__(self, element, next):
+            self._element = element
+            self._next = next
 
     def __init__(self):
         '''create empty queue'''
@@ -31,7 +38,7 @@ class LinkedQueue:
 
     def enqueue(self, e):
         '''add element to back of queue'''
-        newest = _Node(e, None) # node will point to none
+        newest = self._Node(e, None) # node will point to none
         if self._size == 0:
             self._head = newest # special case
         else:
