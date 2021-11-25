@@ -1,4 +1,4 @@
-from ..nodes import _NodeDoublyLinked
+from .nodes import _NodeDoublyLinked
 from ..decorators import is_empty
 
 class _DoublyLinkedBase:

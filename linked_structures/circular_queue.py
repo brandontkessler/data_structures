@@ -1,9 +1,16 @@
-from ..nodes import _Node
 from ..decorators import is_empty
 
 
 class CircularQueue:
     '''Queue implementation using circularly linked list'''
+
+    class _Node:
+        '''lightweight, nonpublic class for storing a singly linked node.'''
+        __slots__ = '_element', '_next' # Prevent dynamic attribute creation (memory efficiency)
+
+        def __init__(self, element, next):
+            self._element = element
+            self._next = next
 
     def __init__(self):
         '''Create empty queue'''
@@ -30,7 +37,7 @@ class CircularQueue:
         return oldhead._element
 
     def enqueue(self, e):
-        newest = _Node(e, None)
+        newest = self._Node(e, None)
         if self._size == 0:
             newest._next = newest # refers to itself
         else:

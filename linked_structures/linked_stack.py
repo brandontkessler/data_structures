@@ -1,13 +1,20 @@
 from ..decorators import is_empty
-from ..nodes import _Node
 
 class LinkedStack:
     '''LIFO Stack implementation using singly linked list for storage'''
 
+    class _Node:
+        '''lightweight, nonpublic class for storing a singly linked node.'''
+        __slots__ = '_element', '_next' # Prevent dynamic attribute creation (memory efficiency)
+
+        def __init__(self, element, next):
+            self._element = element
+            self._next = next
+
     def __init__(self):
         '''create an empty stack'''
         self._head = None # reference to head node
-        self._size = 0 # number of stack elements
+        self._size = 0
 
     def __len__(self):
         '''Return number of elements in stack'''
@@ -15,7 +22,7 @@ class LinkedStack:
 
     def push(self, e):
         '''add element to top of stack'''
-        self._head = _Node(e, self._head) # Create and link a new node
+        self._head = self._Node(e, self._head) # Create and link a new node
         self._size += 1
 
     @is_empty
