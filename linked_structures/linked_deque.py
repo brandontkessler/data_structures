@@ -1,4 +1,4 @@
-from .doubly_linked_base import _DoublyLinkedBase
+from .base import _DoublyLinkedBase
 from ..decorators import is_empty
 
 class LinkedDeque(_DoublyLinkedBase):
